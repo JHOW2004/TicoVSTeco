@@ -1,0 +1,36 @@
+let currentPlayer = 'X';
+let moves = 0;
+let gameEnded = false;
+
+function makeMove(cell) {
+    if (cell.innerHTML === '' && !gameEnded) {
+        cell.innerHTML = currentPlayer;
+        moves++;
+        if (checkWin()) {
+            document.getElementById('result').innerHTML = `Jogador ${currentPlayer} venceu!`;
+            gameEnded = true;
+        } else if (moves === 9) {
+            document.getElementById('result').innerHTML = 'Empate!';
+            gameEnded = true;
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+    }
+}
+
+function checkWin() {
+    const cells = document.querySelectorAll('td');
+    const winningCombos = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
+        [0, 4, 8], [2, 4, 6] // Diagonais
+    ];
+
+    for (const combo of winningCombos) {
+        const [a, b, c] = combo;
+        if (cells[a].innerHTML && cells[a].innerHTML === cells[b].innerHTML && cells[a].innerHTML === cells[c].innerHTML) {
+            return true;
+        }
+    }
+    return false;
+}
