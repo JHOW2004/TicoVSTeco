@@ -1,55 +1,22 @@
-let currentPlayer = "X";
-let moves = 0;
-let gameEnded = false;
+function saveToLocalStorage() {
+  const player1 = document.getElementById('player1');
+  const value1 = player1.value;
 
-let player1Name = "";
-let player2Name = "";
+  const player2 = document.getElementById('player2');
+  const value2 = player2.value;
 
-player1Name = document.getElementById("player1").value;
-player2Name = document.getElementById("player2").value;
+  // Verifique se o navegador suporta o Local Storage
+  if (typeof (Storage) !== "undefined") {
+    // Salve o valor no Local Storage com uma chave específica (por exemplo, "meu_valor")
+    localStorage.setItem("player1", value1);
+    localStorage.setItem("player2", value2);
 
-function makeMove(cell) {
-  if (cell.innerHTML === "" && !gameEnded) {
-    cell.innerHTML = currentPlayer;
-    moves++;
-    if (checkWin()) {
-      if (currentPlayer === "X") {
-        document.getElementById(
-          "result"
-        ).innerHTML = `${player1Name} venceu!`;
-        gameEnded = true;
-      } else if (currentPlayer === "O") {
-        document.getElementById(
-          "result"
-        ).innerHTML = `${player2Name} venceu!`;
-        gameEnded = true;
-      }
-    } else if (moves === 9) {
-      document.getElementById("result").innerHTML = "Empate!";
-      gameEnded = true;
-    } else {
-      currentPlayer = currentPlayer === "X" ? "O" : "X";
-    }
+    console.log("Deu certo")
+
+    let url = "../jogo da velha/jogo/jogo.html";
+    window.location.href = url;
+
+  } else {
+    alert("Seu navegador não suporta Local Storage.");
   }
-}
-
-function checkWin() {
-  const cells = document.querySelectorAll("td");
-  const winningCombos = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
-    [0, 4, 8], [2, 4, 6], // Diagonais
-  ];
-
-  for (const combo of winningCombos) {
-    const [a, b, c] = combo;
-    if (
-      cells[a].innerHTML &&
-      cells[a].innerHTML === cells[b].innerHTML &&
-      cells[a].innerHTML === cells[c].innerHTML
-    ) {
-      return true;
-    }
-  }
-  return false;
 }

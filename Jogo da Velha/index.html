@@ -15,24 +15,24 @@
         <div class="gradient-02"></div>
         <h1 class="title">Tico vs Teco</h1>
 
-        <form action="./jogo/jogo.html">
-            <div class="main">
-                <div class="main-column">
-                    <input placeholder="Player 1 (X)" class="input" name="player1" type="text">
-                </div>
-                <div class="main-column">
-                    <input placeholder="Player 2 (O)" class="input" name="player2" type="text">
-                </div>
-            </div>
 
-            <div class="container">
-                <button>
-                    <span>
-                        Play
-                    </span>
-                </button>
+        <div class="main">
+            <div class="main-column">
+                <input placeholder="Player 1 (X)" class="input" name="player1" type="text" id="player1" value="">
             </div>
-        </form>
+            <div class="main-column">
+                <input placeholder="Player 2 (O)" class="input" name="player2" type="text" id="player2" value="">
+            </div>
+        </div>
+
+        <div class="container">
+            <button onclick="saveToLocalStorage()">
+                <span>
+                    Play
+                </span>
+            </button>
+        </div>
+
     </div>
 </body>
 
