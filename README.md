@@ -7,7 +7,7 @@ O Tico VS Teco é um jogo da velha criado com JavaScript, PHP, HTML e CSS para a
 
 
 ## 🛠 Tecnologias utilizadas
-Javascript, HTML, CSS, HTML
+Javascript, PHP, CSS, HTML
 
 
 ## Autores
