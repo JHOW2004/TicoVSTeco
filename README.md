@@ -1,7 +1,7 @@
 
 # Tico VS Teco
 
-O Tico VS Teco é um jogo da velha criado com JavaScript, PHP, HTML e CSS para a diciplina de Padroes de Porjetos de Sistemas da Fatec de Bauru/São Paulo
+O Tico VS Teco é um jogo da velha criado com JavaScript, PHP, HTML e CSS para a disciplina de Padroes de Porjetos de Sistemas da Fatec de Bauru/São Paulo
 
 
 
